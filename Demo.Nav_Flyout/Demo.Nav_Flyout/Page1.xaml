@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Demo.Nav_Flyout"
+             x:Class="Demo.Nav_Flyout.Page1"
+             Title="GRID DENEME SAYFASI">
+
+    <StackLayout>
+        <ContentView HeightRequest="40"
+                     Margin="0">
+        <Frame BackgroundColor="Gray"
+               Padding="0"
+               CornerRadius="0"
+               HeightRequest="40"
+               HasShadow="False">
+            <Grid Padding="0"
+                  Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                <Label Margin="10,0,10,0" Text="Makine Kodu" VerticalOptions="Center" Grid.Column="0" TextColor="White" FontAttributes="Bold"/>
+                <Label Margin="10,0,10,0" Text="Verim" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold"/>
+                <Label Margin="10,0,10,0" Text="Max Devir" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold"/>
+                <Label Margin="10,0,10,0" Text="Online Duruş" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold"/>
+
+                <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+            </Grid>
+        </Frame>
+        </ContentView>
+        <ListView ItemsSource="{Binding props}"
+                  SeparatorVisibility="Default"
+                  SelectionMode="Single"                  
+                  ItemSelected="DenemeLİste_ItemSelected"
+                  x:Name="DenemeLİste"
+                  HasUnevenRows="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0"
+                                     Margin="0">
+                            <Grid Padding="0"
+                                  RowSpacing="0"
+                                  Margin="0,2,0,0"
+                                  VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="43"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                    <ColumnDefinition Width="2.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Margin="10,0,10,0" Text="{Binding makkod}" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding verim}" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding maxdev}" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding gecidurussay}" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" Padding="0"/>
+                                <Label Text="{Binding kimlik}" IsVisible="False"/>
+                                <Label Text="{Binding perisim}" IsVisible="False"/>
+                                <Label Text="{Binding dev}" IsVisible="False"/>
+                                <Label Text="{Binding makad}" IsVisible="False"/>
+                                <Label Text="{Binding planlidurus}" IsVisible="False"/>
+                                <Label Text="{Binding plansizdurus}" IsVisible="False"/>
+                                <Label Text="{Binding makverim}" IsVisible="False"/>
+                                <Label Text="{Binding tursay}" IsVisible="False"/>
+                                <Label Text="{Binding ideal}" IsVisible="False"/>
+                                <Label Text="{Binding toplamdurus}" IsVisible="False"/>
+                                <Label Text="{Binding perverim}" IsVisible="False"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Margin="0" Opacity="0.1"/>
+                                    <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Margin="0" Opacity="0.1"/>
+                                    <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2" Margin="0" Opacity="0.1"/>
+                                    <!--<BoxView BackgroundColor="DarkGray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0" Grid.Row="1" Grid.ColumnSpan="4"/>-->
+                            </Grid>
+                            
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

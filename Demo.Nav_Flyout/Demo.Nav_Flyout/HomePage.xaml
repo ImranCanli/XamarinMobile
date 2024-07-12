@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Nav_Flyout.HomePage"
+             xmlns:local="clr-namespace:Demo.Nav_Flyout"
+             Title="ARER BOYİZ SAHA İZLEME">
+
+    <StackLayout>
+
+  
+        
+        <Label x:Name="CStringlabel" Text="" IsVisible="false"></Label>
+        <Frame BackgroundColor="#f87c1d"
+               VerticalOptions="StartAndExpand"
+               Margin="0"
+               Padding="0"
+               HeightRequest="40">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.55*"/>
+                    <ColumnDefinition Width="0.10*"/>
+                    <ColumnDefinition Width="0.35*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text=""
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       x:Name="tarihlabel"
+                       Grid.Column="0"/>
+                <Label Text=""
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       x:Name="vardiyalabel"
+                       Grid.Column="1"/>
+                <Label Text=""
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       x:Name="amirlabel"
+                       Grid.Column="2"/>
+            </Grid>
+        </Frame>
+        <ContentView HeightRequest="40"
+                     Margin="0">
+            <Frame BackgroundColor="Gray"
+                   Padding="0"
+                   CornerRadius="0"
+                   HeightRequest="45"
+                   HasShadow="True">
+                <Grid Padding="0"
+                      Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+                    </Grid.RowDefinitions>
+                    <Label Margin="10,0,10,0" Text="" VerticalOptions="Center" Grid.Column="0" TextColor="White" FontAttributes="Bold" FontSize="9" x:Name="makkodbaslik"/>
+                    <Label Margin="5,0,10,0" Text="Verim" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold" FontSize="9" x:Name="verimbaslik"/>
+                    <Label Margin="5,0,10,0" Text="Max Devir" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold" FontSize="9" x:Name="maxdevirbaslik"/>
+                    <Label Margin="5,0,10,0" Text="Online Duruş" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold" FontSize="9" x:Name="onlinedurusbaslik"/>
+                    <Label Margin="5,0,5,0" Text="Per. Verim%" VerticalOptions="Center" Grid.Column="4" TextColor="White" FontAttributes="Bold" FontSize="9" x:Name="perverimbaslik"/>
+                    <Label Margin="5,0,5,0" Text="Toplam Duruş" VerticalOptions="Center" Grid.Column="5" TextColor="White" FontAttributes="Bold" FontSize="9" x:Name="toplamdurusbaslik"/>
+                    <Label Margin="5,0,5,0" Text="Plansız Duruş" VerticalOptions="Center" Grid.Column="6" TextColor="white" FontAttributes="Bold" FontSize="9" x:Name="plansizdurusbaslik"/>
+
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                    <BoxView BackgroundColor="Black" WidthRequest="1" Grid.Column="5" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Opacity="0.1"/>
+                </Grid>
+            </Frame>
+        </ContentView>
+        
+        <RefreshView x:Name="PulltoRefresh"
+                     RefreshColor="#f87c1d"
+                     Refreshing="PulltoRefresh_Refreshing">
+            
+        <ListView SeparatorVisibility="Default"
+                  SelectionMode="Single"                  
+                 
+                  ItemTapped="DenemeLİste_ItemTapped"
+                  x:Name="DenemeLİste"
+                  HasUnevenRows="False"
+                  IsRefreshing="False">
+    
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0"
+                                     Margin="0">
+                            <Grid Padding="0"
+                                  RowSpacing="0"
+                                  Margin="0,2,0,0"
+                                  VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="43"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                <Label Margin="10,0,10,0" Text="{Binding makkod}" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding verim}" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" Padding="0" x:Name="verimlabel" FontAttributes="Bold" TextColor="{Binding renk}"/>
+                                <Label Margin="10,0,10,0" Text="{Binding maxdev}" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding gecidurussay}" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding perverim}" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding toplamdurus}" VerticalOptions="Center" Grid.Row="0" Grid.Column="5" Padding="0"/>
+                                <Label Margin="10,0,10,0" Text="{Binding plansizdurus}" VerticalOptions="Center" Grid.Row="0" Grid.Column="6" Padding="0"/>
+                                
+                                <Label Text="{Binding kimlik}" IsVisible="False"/>
+                                <Label Text="{Binding perisim}" IsVisible="False"/>
+                                <Label Text="{Binding dev}" IsVisible="False"/>
+                                <Label Text="{Binding makad}" IsVisible="False"/>
+                                <Label Text="{Binding planlidurus}" IsVisible="False"/>
+                                <Label Text="{Binding plansizdurus}" IsVisible="False"/>
+                                <Label Text="{Binding makverim}" IsVisible="False"/>
+                                <Label Text="{Binding tursay}" IsVisible="False"/>
+                                <Label Text="{Binding ideal}" IsVisible="False"/>
+                                <Label Text="{Binding toplamdurus}" IsVisible="False"/>
+                                
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Margin="0" Opacity="0.1"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Margin="0" Opacity="0.1"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2" Margin="0" Opacity="0.1"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3" Margin="0" Opacity="0.1"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="4" Margin="0" Opacity="0.1"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="5" Margin="0" Opacity="0.1"/>
+                                <BoxView BackgroundColor="Black" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="6" Margin="0" Opacity="0.1"/>
+                                    <!--<BoxView BackgroundColor="DarkGray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0" Grid.Row="1" Grid.ColumnSpan="4"/>-->
+                            </Grid>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

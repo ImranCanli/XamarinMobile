@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Nav_Flyout.Durusatama"
+             xmlns:local="clr-namespace:Demo.Nav_Flyout" 
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             Title="DURUŞLAR"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+
+        <Frame VerticalOptions="StartAndExpand"
+               HeightRequest="75"
+               BackgroundColor="#f87c1d"
+               Margin="0"
+               HasShadow="True"
+               Padding="0,10,0,0">
+
+            <Grid Margin="0"
+                  RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.57*"/>
+                    <ColumnDefinition Width="0.43*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="DURUŞLAR"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       FontSize="20"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"/>
+                <Label Text="Makine Kodu :"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Margin="0,0,0,0"/>
+                <Label Text=""
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       x:Name="makkodlabl"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
+            </Grid>
+        </Frame>
+
+        <Grid>
+        <Label x:Name="denemelabel" Grid.Row="0" IsVisible="false" Text=""/>
+        <Label x:Name="denemelabel2" Grid.Row="0" IsVisible="false" Text=""/>
+
+        <ListView x:Name="Durusliste"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding duruslars}"
+                  SeparatorVisibility="Default"
+                  SelectionMode="Single"
+                  ItemTapped="Durusliste_ItemTapped"
+                  HorizontalOptions="FillAndExpand"
+                  Margin="0,0,0,60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="0" Margin="0,0,0,3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Horizontal" 
+                                         HorizontalOptions="FillAndExpand">
+                                <Frame IsClippedToBounds="True" 
+                                       Grid.Row="0" 
+                                       HasShadow="True"
+                                       Padding="0"
+                                       Grid.Column="0"
+                                       HorizontalOptions="FillAndExpand"
+                                       HeightRequest="200">
+
+                                    <Grid HorizontalOptions="FillAndExpand"
+                                          RowSpacing="0"
+                                          Margin="0,10,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*"/>
+                                            <ColumnDefinition Width="0.7*"/>
+                                        </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="10"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="10"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="10"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="10"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="10"/>                                                
+                                            </Grid.RowDefinitions>
+                                        <Label Text="Tür" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="10,15,0,0"></Label>
+                                        <Label Text="{Binding tur}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" Margin="10,15,0,0"></Label>
+                                        <Label Text="Tarih :" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="{Binding tarih}" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="Süre :" FontAttributes="Bold" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="{Binding sure}" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="Neden :" Grid.Column="0" FontAttributes="Bold" Grid.Row="6" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="{Binding neden}" Grid.Column="1" Grid.Row="6" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="Açıklama :" FontAttributes="Bold" Grid.Column="0" Grid.Row="8" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="{Binding aciklama}" Grid.Column="1" Grid.Row="8" HorizontalOptions="Start" Margin="10,0,0,0"></Label>
+                                        <Label Text="{Binding maknokimlik}" IsVisible="false"/>
+                                        <Label Text="{Binding kimlik}" IsVisible="false"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Frame VerticalOptions="EndAndExpand"
+               HasShadow="True"
+               HeightRequest="60"
+               BackgroundColor="#f87c1d"
+               HorizontalOptions="FillAndExpand"
+               Padding="0">
+            <Grid HorizontalOptions="FillAndExpand"
+                  Margin="0"
+                  Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Picker Title="Duruş Nedeni"
+                        TitleColor="White"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        x:Name="NedenPicker"                                                
+                        WidthRequest="200"
+                        ItemDisplayBinding="{Binding durusad}"
+                        Grid.Column="0"
+                        SelectedIndexChanged="NedenPicker_SelectedIndexChanged"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Margin="30,0,0,10">
+                </Picker>
+
+                <Picker Title="Duruş Türü"
+                        TitleColor="White"
+                        FontAttributes="Bold"
+                        x:Name="TurPicker"
+                        WidthRequest="200"
+                        ItemDisplayBinding="{Binding tur}"
+                        Grid.Column="1"
+                        TextColor="White"
+                        SelectedIndexChanged="TurPicker_SelectedIndexChanged"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Margin="30,0,0,10">
+                </Picker>
+              
+            </Grid>
+        </Frame>
+    </Grid>
+    </StackLayout>
+</ContentPage>
