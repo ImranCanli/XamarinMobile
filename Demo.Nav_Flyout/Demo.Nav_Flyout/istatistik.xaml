@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Nav_Flyout.istatistik"
+             xmlns:control="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             xmlns:local="clr-namespace:Demo.Nav_Flyout"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <StackLayout Margin="0"
+                 Padding="0">
+        <Frame VerticalOptions="StartAndExpand"
+               BackgroundColor="#f87c1d"
+               Margin="0"
+               Padding="0"
+               HeightRequest="50"
+               CornerRadius="0"
+               x:Name="baslik">
+            <Label Text="İSTATİSTİK"
+                   FontSize="20"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+        </Frame>
+        <ListView x:Name="MyStats"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="Default"
+                  SelectionMode="Single"
+                  HorizontalOptions="FillAndExpand"
+                  Margin="0,10,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="0"
+                               Padding="5"
+                               HasShadow="True"
+                               BackgroundColor="White">
+                            <Grid Margin="0"
+                                  Padding="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.55*"/>
+                                    <ColumnDefinition Width="0.45*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                    <RowDefinition Height="95"/>
+                                </Grid.RowDefinitions>
+                            <Grid Margin="0"
+                                  Padding="0"
+                                  Grid.Column="0"
+                                  Grid.RowSpan="8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="250"/>
+                                    </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Frame HasShadow="True"
+                                           CornerRadius="10"
+                                           HeightRequest="210"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Padding="5"
+                                           Grid.ColumnSpan="2"
+                                           Grid.Row="0">
+                                        <Grid Margin="0"
+                                              Padding="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="0.80*"/>
+                                                <RowDefinition Height="0.20*"/>
+                                            </Grid.RowDefinitions>
+                                            <control:SfCircularGauge Margin="10" HeightRequest="250" WidthRequest="250" HorizontalOptions="CenterAndExpand" Grid.Row="0" VerticalOptions="Center">
+                                                <control:SfCircularGauge.Scales>
+                                                    <control:Scale StartValue="0" EndValue="100">
+                                                        <control:Scale.Ranges>
+                                                            <control:Range StartValue="0" EndValue="70" Color="red"/>
+                                                            <control:Range StartValue="70" EndValue="85" Color="Orange"/>
+                                                            <control:Range StartValue="85" EndValue="100" Color="Green"/>
+                                                        </control:Scale.Ranges>
+                                                        <control:Scale.Pointers>
+                                                            <control:NeedlePointer Value="{Binding makverim}"/>
+                                                        </control:Scale.Pointers>
+                                                    </control:Scale>
+                                                </control:SfCircularGauge.Scales>
+                                                <control:SfCircularGauge.Headers>
+                                                    <control:Header Text="Mak. Verim" TextSize="15" ForegroundColor="DarkGray"/>
+                                                </control:SfCircularGauge.Headers>
+                                            </control:SfCircularGauge>
+                                            <Label FontAttributes="Bold" TextColor="{Binding renk1}" Text="{Binding makverim}" HorizontalOptions="Center" Grid.Row="1" FontSize="20" VerticalOptions="Start"></Label>
+                                        </Grid>
+                                    </Frame>
+
+                                    <Frame HasShadow="True"
+                                           CornerRadius="10" 
+                                           HeightRequest="210"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Padding="5"
+                                           Grid.ColumnSpan="2"
+                                           Grid.Row="1">
+                                        <Grid Margin="0"
+                                              Padding="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="0.80*"/>
+                                                <RowDefinition Height="0.20*"/>
+                                            </Grid.RowDefinitions>
+                                    <control:SfCircularGauge Margin="10" HeightRequest="250" WidthRequest="250" Grid.Row="0" VerticalOptions="Center">
+                                    <control:SfCircularGauge.Scales>
+                                        <control:Scale StartValue="0" EndValue="100">
+                                            <control:Scale.Ranges>
+                                                <control:Range StartValue="0" EndValue="70" Color="Red"/>
+                                                <control:Range StartValue="70" EndValue="85" Color="Orange"/>
+                                                <control:Range StartValue="85" EndValue="100" Color="Green"/>
+                                            </control:Scale.Ranges>
+                                            <control:Scale.Pointers>
+                                                <control:NeedlePointer Value="{Binding perverim}"/>
+                                            </control:Scale.Pointers>
+                                        </control:Scale>
+                                    </control:SfCircularGauge.Scales>
+                                    <control:SfCircularGauge.Headers>
+                                        <control:Header Text="Per. Verim" TextSize="15" ForegroundColor="DarkGray"/>
+                                    </control:SfCircularGauge.Headers>
+                                </control:SfCircularGauge>
+
+                                            <Label FontAttributes="Bold" TextColor="{Binding renk2}" Text="{Binding perverim}" HorizontalOptions="Center" Grid.Row="1" FontSize="20" VerticalOptions="Start"></Label>
+                                        </Grid>
+                                    </Frame>
+
+                                    <Frame HasShadow="True"
+                                           CornerRadius="10"
+                                           HeightRequest="210"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Padding="5"
+                                           Grid.ColumnSpan="2"
+                                           Grid.Row="2">
+                                        <Grid Margin="0"
+                                              Padding="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="0.80*"/>
+                                                <RowDefinition Height="0.20*"/>
+                                            </Grid.RowDefinitions>
+                                    <control:SfCircularGauge Margin="10" HeightRequest="250" WidthRequest="250" VerticalOptions="Center">
+                                        <control:SfCircularGauge.Scales>
+                                            <control:Scale StartValue="0" EndValue="100">
+                                                <control:Scale.Ranges>
+                                                    <control:Range StartValue="0" EndValue="70" Color="Red"/>
+                                                    <control:Range StartValue="70" EndValue="85" Color="Orange"/>
+                                                    <control:Range StartValue="85" EndValue="100" Color="Green"/>
+                                                </control:Scale.Ranges>
+                                                <control:Scale.Pointers>
+                                                    <control:NeedlePointer Value="{Binding fverim}"/>
+                                                </control:Scale.Pointers>
+                                            </control:Scale>
+                                        </control:SfCircularGauge.Scales>
+                                        <control:SfCircularGauge.Headers>
+                                            <control:Header Text="F. Verim" TextSize="15" ForegroundColor="DarkGray"/>
+                                        </control:SfCircularGauge.Headers>
+                                    </control:SfCircularGauge>
+
+                                            <Label FontAttributes="Bold" TextColor="{Binding renk3}" Text="{Binding fverim}" HorizontalOptions="Center" Grid.Row="1" FontSize="20" VerticalOptions="Start"></Label>
+                                        </Grid>
+                                    </Frame>
+                                    <!--<chart:SfChart Grid.Row="3" Grid.ColumnSpan="2">
+                                    <chart:SfChart.Legend>
+                                        <chart:ChartLegend>
+                                            <chart:ChartLegend.LabelStyle>
+                                                <chart:ChartLegendLabelStyle FontSize="15" FontAttributes="Bold"/>
+                                            </chart:ChartLegend.LabelStyle>
+                                        </chart:ChartLegend>
+                                    </chart:SfChart.Legend>
+                                    <chart:SfChart.Series>
+                                        <chart:PieSeries EnableAnimation="True" ItemsSource="{Binding stats}" EnableTooltip="True" XBindingPath="acmaksay" YBindingPath="kapmaksay">
+                                            <chart:PieSeries.DataMarker>
+                                                <chart:ChartDataMarker LabelContent="DataMarkerLabel">
+                                                    <chart:ChartDataMarker.LabelStyle>
+                                                        <chart:DataMarkerLabelStyle FontAttributes="Bold" LabelPosition="Auto"/>
+                                                    </chart:ChartDataMarker.LabelStyle>
+                                                </chart:ChartDataMarker>
+                                            </chart:PieSeries.DataMarker>
+                                            <chart:PieSeries.ColorModel>
+                                                <chart:ChartColorModel Palette="Custom">
+                                                    <chart:ChartColorModel.CustomBrushes>
+                                                        <Color>#00A9FF</Color>
+                                                        <Color>#F4CE14</Color>
+                                                        <Color>#DA0C81</Color>
+                                                        <Color>#186F65</Color>
+                                                        <Color>#A8DF8E</Color>
+                                                        <Color>#F3AA60</Color>
+                                                    </chart:ChartColorModel.CustomBrushes>
+                                                </chart:ChartColorModel>
+                                            </chart:PieSeries.ColorModel>
+                                        </chart:PieSeries>
+                                    </chart:SfChart.Series>
+                                </chart:SfChart>-->
+
+                                <!--<Label Text="Vardiya Türü :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="0" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding vardiyatur}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="0" FontAttributes="Bold" Grid.Column="1"></Label>-->
+                                <!--<Label Text="Açık Makine :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="1" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding acmaksay}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="1" FontAttributes="Bold" Grid.Column="1"></Label>-->
+                                <!--<Label Text="Kapalı Makine :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="2" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding kapmaksay}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="2" FontAttributes="Bold" Grid.Column="1"></Label>-->
+                                <!--<Label Text="Duran Makine :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="3" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding durmaksay}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="3" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="Makine Verim% :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="4" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding makverim}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="4" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="Personel Verim% :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="5" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding perverim}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="5" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="Fiili Verim% :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="6" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding fverim}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="6" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="Max Hata :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="7" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding maxhata}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="7" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="Toplam Makine :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="8" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding topmaksay}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="8" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="Planlı Duruşlar :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="9" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding planlidurus}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="9" FontAttributes="Bold" Grid.Column="1"></Label>
+                                <Label Text="İşletme No :" Margin="10,0,0,0" VerticalOptions="Center" Grid.Row="10" HorizontalOptions="Center" FontAttributes="Bold" Grid.Column="0"></Label>
+                                <Label Text="{Binding isletmeno}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="10" FontAttributes="Bold" Grid.Column="1"></Label>-->
+                            </Grid>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="0"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Vardiya Türü" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding vardiyatur}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Margin="4,0,0,0"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Açık Makine" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding acmaksay}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Kapalı Makine" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding kapmaksay}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="3"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Duran Makine" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding durmaksay}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="4"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Maksimum Hata" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding maxhata}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="5"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Toplam Makine" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding topmaksay}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="6"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Planlı Duruşlar" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding planlidurus}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame HasShadow="True" 
+                                       CornerRadius="10"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HeightRequest="60"
+                                       Grid.Row="7"
+                                       Grid.Column="1"
+                                       WidthRequest="180"
+                                       Margin="0,7,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="İşletme No" Grid.Row="0" VerticalOptions="Center" FontAttributes="Bold" FontSize="15" TextColor="#f87c1d" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding isletmeno}" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

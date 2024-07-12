@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Nav_Flyout.Deviratama"
+             BackgroundColor="#f87c1d"
+             Title="DEVİR ATAMA"
+             NavigationPage.HasNavigationBar="False">
+    
+    <StackLayout Padding="0"
+                 Margin="0">
+        <Grid Padding="0"
+              Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.21*"/>
+                <RowDefinition Height="0.79*"/>
+            </Grid.RowDefinitions>
+            
+            
+            
+        <Frame BackgroundColor="White" HasShadow="True" VerticalOptions="StartAndExpand" Margin="0,0,0,0" Grid.Row="0">
+            <Label Text="DEVİR ATAMA" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold" FontSize="20"/>
+        </Frame>
+
+
+
+        <!-- Panel (Frame) -->
+                <Frame BackgroundColor="White" HasShadow="True" VerticalOptions="Center" Margin="0,40,0,0" Grid.Row="1" CornerRadius="8" Grid.RowSpan="2">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <!-- Üst Kısımdaki İki Label -->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Grid Margin="0"
+                          Padding="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Makine Kodu :" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                                <Label x:Name="devirlabel" Text="" VerticalOptions="CenterAndExpand" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="Mevcut Devir :" VerticalOptions="CenterAndExpand" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="" VerticalOptions="CenterAndExpand" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" x:Name="eskidevir"/>
+                        </Grid>
+                        </StackLayout>
+
+                        <!-- Alt Kısımdaki Label ve TextBox -->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Grid Margin="0"
+                          Padding="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry x:Name="devirvalue" Placeholder="Yeni Devir Girin" VerticalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" HorizontalOptions="FillAndExpand" WidthRequest="270"/>
+                                <Button Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#f87c1d" Text="GÜNCELLE" FontAttributes="Bold" TextColor="White" WidthRequest="270" Clicked="Button_Clicked"/>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        <!-- Altta yer alan footer -->
+        <Frame BackgroundColor="White" HasShadow="True" VerticalOptions="EndAndExpand" Margin="0,20,0,0">
+            <Label Text="Arer Robotic Control" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Frame>
+    </StackLayout>
+</ContentPage>

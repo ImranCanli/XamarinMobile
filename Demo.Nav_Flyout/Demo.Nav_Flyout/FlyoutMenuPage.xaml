@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Demo.Nav_Flyout"
+             Title="FlyoutMenu"
+             x:Class="Demo.Nav_Flyout.FlyoutMenuPage">
+    <StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public"
+                  SeparatorVisibility="None">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:FlyoutItemPage}">
+                    <local:FlyoutItemPage/>
+                    <!--<local:FlyoutItemPage x:Name="ilk" Title="AnaSayfa" IconSource="home.png"/>-->
+                    <local:FlyoutItemPage x:Name="ucuncu" Title="Personel Atama" IconSource="home.png"/>
+                    <local:FlyoutItemPage x:Name="dorduncu" Title="Devir Atama" IconSource="home.png" />
+                    <local:FlyoutItemPage x:Name="ikinci" Title="Plansız Duruşlar" IconSource="home.png" />
+                    <local:FlyoutItemPage x:Name="altinci" Title="Planlı Duruşlar"/>
+                    <!--<local:FlyoutItemPage x:Name="besinci" Title="GridDeneme" IconSource="home.png"/>-->
+                    <local:FlyoutItemPage x:Name="yedinci" Title="Arşiv"/>
+                    <local:FlyoutItemPage x:Name="sekizinci" Title="İstatistik"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}"/>
+                            <Label Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Title}"/>
+                            
+                        </Grid>
+                </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

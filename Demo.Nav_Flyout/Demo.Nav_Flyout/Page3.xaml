@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Nav_Flyout.Page3"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#f87c1d">
+
+    <StackLayout Padding="0">
+        <Frame VerticalOptions="StartAndExpand"
+               BackgroundColor="White"
+               HasShadow="True"
+               Margin="0"
+               HeightRequest="50">
+            
+            <Label Text="BAĞLANTI KAYDI OLUŞTUR"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="#f87c1d"
+                   FontAttributes="Bold"
+                   FontSize="20"></Label>
+        </Frame>
+
+        <Frame VerticalOptions="Center"
+               HorizontalOptions="FillAndExpand"
+               BackgroundColor="White"
+               HeightRequest="240"
+               Margin="0"
+               Padding="0,10,0,0">
+            <StackLayout>
+
+                <Entry Placeholder="Bağlantı ifadesi giriniz" x:Name="CONNSEntry" Margin="0,20,0,0" HorizontalOptions="Center" WidthRequest="300" TextChanged="CONNSEntry_TextChanged"/>
+
+                <Button Text="KAYIT EKLE" Margin="0,20,0,0" FontAttributes="Bold" Clicked="Button_Clicked" TextColor="White" BackgroundColor="#f87c1d" WidthRequest="270" HorizontalOptions="Center"/>
+
+                <Button Text="KAYDIMI SİL" Margin="0,20,0,0" FontAttributes="Bold" TextColor="white" BackgroundColor="#f87c1d" WidthRequest="270" HorizontalOptions="Center" Clicked="Button_Clicked_1"/>
+
+            </StackLayout>
+        </Frame>
+
+        <Frame BackgroundColor="White"
+              VerticalOptions="EndAndExpand"
+              HeightRequest="20">
+            <Label Text="© 2013 ARER Control  www.arerotomasyon.com"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Center"/>
+        </Frame>
+
+    </StackLayout>
+             
+</ContentPage>
